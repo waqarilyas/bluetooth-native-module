@@ -13,12 +13,10 @@ const {BluetoothDevices} = NativeModules;
 function App(): JSX.Element {
   const [devices, setDevices] = React.useState([]);
 
-  console.log('🚀 ~ file: App.tsx:12 ~ BluetoothModule:', BluetoothDevices);
-
   const getAvailableBluetoothDevices = async () => {
     try {
-      BluetoothDevices.fetchBluetoothDevices((devices: string[]) => {
-        console.log('Discovered Bluetooth devices:', devices);
+      BluetoothDevices.fetchBluetoothDevices((response: string[]) => {
+        console.log('Discovered Bluetooth devices:', response);
       });
 
       setDevices(devices);
